@@ -16,12 +16,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+//IonicStorageModule - changed to Storage and is provided directly
 import { Storage } from '@ionic/storage';
+
+//for transfering ou .json files to the app
+export function createTranslateLoader(http: HttpClient){
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [StatusBar, SplashScreen, Facebook, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    })
+  ],
+  providers: [StatusBar, SplashScreen, Facebook, Storage, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
