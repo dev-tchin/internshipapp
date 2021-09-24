@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title color="tertiary">
+      My Ionic App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="tertiary" [fullscreen]="true">
+  <ion-card *ngIf="user">
+    <img [src]="user.picture.data.url">
+    <ion-card-header>
+      <ion-card-title>
+        {{ user.name }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{ user.birthday }}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      {{ user.email }}
+      <ion-button (click)="logout()" expand="block">Logout :(</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button (click)="login()" expand="block" id="container"><ion-icon slot="end" name="logo-facebook"></ion-icon> :) Login with facebook</ion-button>
+
+  <ion-grid class="internship-logo">
+    <ion-row>
+      <ion-col class="justify-align-center">
+        <ion-text>Powered by </ion-text>
+        <ion-img src="assets/internship.png" class="inline-b"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
