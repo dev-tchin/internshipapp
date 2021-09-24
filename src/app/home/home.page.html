@@ -7,6 +7,13 @@
 </ion-header>
 
 <ion-content color="tertiary" [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text color="danger">Nice, but not everything works fine !</ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-card *ngIf="user">
     <img [src]="user.picture.data.url">
     <ion-card-header>
