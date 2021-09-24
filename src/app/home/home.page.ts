@@ -1,3 +1,4 @@
+import { LanguageService } from './../language.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { FacebookLogin, FacebookLoginPlugin } from '@capacitor-community/facebook-login';
@@ -6,6 +7,7 @@ import { Plugins, registerWebPlugin } from '@capacitor/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertController, isPlatform, PopoverController } from '@ionic/angular';
 import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+
 //@ts-ignore
 registerWebPlugin(FacebookLogin);
 
@@ -19,10 +21,12 @@ export class HomePage {
   fbLogin: FacebookLoginPlugin;
   user=null;
   token=null;
+  other: LanguageService;
 
   constructor(private http: HttpClient, private translate: TranslateService, private popoverCtrl: PopoverController) {
     this.setupFbLogin();
   }
+
 
   async setupFbLogin(){
     if(isPlatform('desktop')) {
@@ -77,6 +81,15 @@ export class HomePage {
       event: ev
     });
     await popover.present();
+  }
+
+  //using browser selector
+  englishLanguage(){
+    return this.other.setLanguage('en');
+  }
+  
+  frenchLanguage(){
+    return this.other.setLanguage('fr');
   }
 
 }

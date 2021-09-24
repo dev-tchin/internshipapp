@@ -28,10 +28,10 @@ export class LanguageService {
   }
 
   getLanguages(){
-    return[
+    return [
       { text: 'English', value: 'en'},
       { text: 'Français', value: 'fr'}
-    ]
+    ];
   }
 
   setLanguage(lng){
@@ -39,4 +39,9 @@ export class LanguageService {
     this.selected = lng;
     this.storage.set(LNG_KEY, lng);
   }
+
+  setOtherLanguage(lng){
+    this.translate.use(lng);
+  }
 }
+ 
