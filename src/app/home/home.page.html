@@ -1,8 +1,16 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="danger">
     <ion-title color="tertiary">
-      My Ionic App
+      {{ 'title' | translate}}
     </ion-title>
+
+    <ion-buttons>
+      <ion-button (click)="openLanguagePopover($event)">
+        <ion-icon name="more" slot="icon-only">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +18,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-text color="danger">Nice, but not everything works fine !</ion-text>
+        <ion-text color="danger">{{'firstText' | translate}}</ion-text>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -26,11 +34,11 @@
     </ion-card-header>
     <ion-card-content>
       {{ user.email }}
-      <ion-button (click)="logout()" expand="block">Logout :(</ion-button>
+      <ion-button (click)="logout()" expand="block">{{'logoutButton' | translate}}</ion-button>
     </ion-card-content>
   </ion-card>
 
-  <ion-button (click)="login()" expand="block" id="container"><ion-icon slot="end" name="logo-facebook"></ion-icon> :) Login with facebook</ion-button>
+  <ion-button (click)="login()" expand="block" id="container"><ion-icon slot="end" name="logo-facebook"></ion-icon>{{ 'loginButton' | translate }}</ion-button>
 
   <ion-grid class="internship-logo">
     <ion-row>

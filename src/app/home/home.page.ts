@@ -1,9 +1,11 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component } from '@angular/core';
 import { FacebookLogin, FacebookLoginPlugin } from '@capacitor-community/facebook-login';
 import { Plugins, registerWebPlugin } from '@capacitor/core';
 
 import { HttpClient } from '@angular/common/http';
-import { isPlatform } from '@ionic/angular';
+import { AlertController, isPlatform, PopoverController } from '@ionic/angular';
+import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 //@ts-ignore
 registerWebPlugin(FacebookLogin);
 
@@ -18,7 +20,7 @@ export class HomePage {
   user=null;
   token=null;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private translate: TranslateService, private popoverCtrl: PopoverController) {
     this.setupFbLogin();
   }
 
@@ -66,6 +68,14 @@ export class HomePage {
     await this.fbLogin.logout();
     this.user = null;
     this.token = null;
+  }
+
+  //popover config
+  async openLanguagePopover(ev){
+    const popover = await this.popoverCtrl.create({
+      component: LanguagePopoverPage,
+      event: ev
+    });
   }
 
 }

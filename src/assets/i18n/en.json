@@ -1,5 +1,8 @@
 {
 	"title": "My Ionic App ",
+	"language": "Select language",
+	"English": "English",
+	"French": "French",
 	"logoutButton": "Logout :(",
 	"loginButton": ":) Login with facebook",
 	"firstText": "Nice, but not everything works fine !",

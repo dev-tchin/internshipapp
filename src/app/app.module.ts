@@ -19,6 +19,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 //IonicStorageModule - changed to Storage and is provided directly
 import { Storage } from '@ionic/storage';
+import { LanguagePopoverPageModule } from './language-popover/language-popover.module';
 
 //for transfering ou .json files to the app
 export function createTranslateLoader(http: HttpClient){
@@ -35,7 +36,8 @@ export function createTranslateLoader(http: HttpClient){
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    })
+    }),
+    LanguagePopoverPageModule
   ],
   providers: [StatusBar, SplashScreen, Facebook, Storage, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

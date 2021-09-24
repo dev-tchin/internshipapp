@@ -1,5 +1,8 @@
 {
 	"title": "Mon Application Ionic ",
+	"language": "Choisissez la langue",
+	"English": "Anglais",
+	"French": "Français",
 	"logoutButton": "Deconnexion :(",
 	"loginButton": ":) Se connecter avec facebook",
 	"firstText": "Bien, mais tout ne marche pas bien !",
