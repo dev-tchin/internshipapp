@@ -76,6 +76,7 @@ export class HomePage {
       component: LanguagePopoverPage,
       event: ev
     });
+    await popover.present();
   }
 
 }
