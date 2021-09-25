@@ -75,21 +75,18 @@ export class HomePage {
   }
 
   //popover config
-  async openLanguagePopover(ev){
+  /*async openLanguagePopover(ev){
     const popover = await this.popoverCtrl.create({
       component: LanguagePopoverPage,
       event: ev
     });
     await popover.present();
-  }
+  }*/
 
   //using browser selector
-  englishLanguage(){
-    return this.other.setLanguage('en');
-  }
-  
-  frenchLanguage(){
-    return this.other.setLanguage('fr');
+  switchLanguage($event){
+    return this.translate.use($event.target.value);
+    console.log($event.target.value);
   }
 
 }

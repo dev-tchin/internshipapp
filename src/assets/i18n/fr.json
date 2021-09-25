@@ -1,9 +1,13 @@
 {
 	"title": "Mon Application Ionic ",
 	"language": "Choisissez la langue",
-	"select": "Juste Un"
+	"select": "Juste Un",
+	"English": "Anglais",
+	"French" : "Français",
+	"Ok" : "Accepter",
+	"Cancel" : "Quitter",
 	"logoutButton": "Deconnexion :(",
 	"loginButton": ":) Se connecter avec facebook",
-	"firstText": "Bien, mais tout ne marche pas bien !",
+	"firstText": "Bien, mais tout ne marche pas bien, Erreur de sécurité, facebook !",
 	"secondText": "Encouragé par "
 }

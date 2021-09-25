@@ -1,4 +1,3 @@
-import { LanguagePopoverPageModule } from './../language-popover/language-popover.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -7,7 +6,6 @@ import { HomePage } from './home.page';
 
 //TranslateModule is imported for all modules
 import { TranslateModule } from '@ngx-translate/core';
-import { LanguagePopoverPage } from '../language-popover/language-popover.page';
 import { HomePageRoutingModule } from './home-routing.module';
 
 
@@ -18,8 +16,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule,
     TranslateModule,
-    LanguagePopoverPageModule
   ],
-  declarations: [HomePage, LanguagePopoverPage]
+  declarations: [HomePage]
 })
 export class HomePageModule {}
