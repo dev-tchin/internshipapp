@@ -26,7 +26,7 @@ export class HomePage {
   token=null;
   other: LanguageService;
 
-  constructor(private http: HttpClient, private translate: TranslateService, private popoverCtrl: PopoverController) {
+  constructor(private http: HttpClient, private translate: TranslateService) {
     this.setupFbLogin();
   }
 
