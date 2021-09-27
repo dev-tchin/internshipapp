@@ -5,8 +5,11 @@ import { FacebookLogin, FacebookLoginPlugin } from '@capacitor-community/faceboo
 import { Plugins, registerWebPlugin } from '@capacitor/core';
 
 import { HttpClient } from '@angular/common/http';
-import { AlertController, isPlatform, PopoverController } from '@ionic/angular';
-import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+
+//Removing imports related to previous components
+//import { AlertController, PopoverController, isPlatform } from '@ionic/angular';
+//import { LanguagePopoverPage } from '../language-popover/language-popover.page';
+import { isPlatform } from '@ionic/angular';
 
 //@ts-ignore
 registerWebPlugin(FacebookLogin);
@@ -86,7 +89,6 @@ export class HomePage {
   //using browser selector
   switchLanguage($event){
     return this.translate.use($event.target.value);
-    console.log($event.target.value);
   }
 
 }
