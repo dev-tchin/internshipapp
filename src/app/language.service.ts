@@ -25,6 +25,7 @@ export class LanguageService {
         this.selected = val;
       }
     });
+    this.storage.create();
   }
 
   getLanguages(){
