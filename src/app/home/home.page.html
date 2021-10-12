@@ -1,37 +1,20 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="danger">
-    <ion-title color="tertiary">
-      {{ 'title' | translate}}
+  <ion-toolbar>
+    <ion-title>
+      {{ 'title' | translate }}
     </ion-title>
-  <!--
-    <ion-buttons color="primary" slot="end">
-      <ion-button (click)="openLanguagePopover($event)">
-        <ion-icon name="more" slot="icon-only">
-        </ion-icon>
-      </ion-button>
-    </ion-buttons>
-
-  -->
-
-      <ion-label slot="end" color="tertiary">{{"language" | translate}}</ion-label>
-    <ion-select slot="end" okText="{{'Ok' | translate}}" cancelText="{{'Cancel' | translate}}" (ionChange)="switchLanguage($event)" placeholder="{{'select' | translate}}" color="primary">
-      <ion-select-option value="en" >{{ 'English' | translate}}</ion-select-option>
-      <ion-select-option value="fr" >{{ 'French' | translate}}</ion-select-option>
+    <ion-select slot="end" okText="{{ 'ok' | translate }}" cancelText="{{ 'cancel' | translate }}" (ionChange)="switchLanguage($event)" placeholder="{{ 'selectLanguage' | translate }}" color="primary">
+      <ion-select-option value="en">{{ 'english' | translate }}</ion-select-option>
+      <ion-select-option value="fr">{{ 'french' | translate }}</ion-select-option>
     </ion-select>
-
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="tertiary" [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-text color="danger">{{'firstText' | translate}}</ion-text>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content [fullscreen]="true">
+
   <ion-card *ngIf="user">
     <img [src]="user.picture.data.url">
+
     <ion-card-header>
       <ion-card-title>
         {{ user.name }}
@@ -40,21 +23,54 @@
         {{ user.birthday }}
       </ion-card-subtitle>
     </ion-card-header>
+    
     <ion-card-content>
       {{ user.email }}
-      <ion-button (click)="logout()" expand="block">{{'logoutButton' | translate}}</ion-button>
+      <ion-button (click)="logoutFromFacebook()" expand="block">
+      <ion-icon name="close-circle-outline"></ion-icon>
+        {{ 'Logout' | translate }}
+      </ion-button>
     </ion-card-content>
   </ion-card>
 
-  <ion-button (click)="login()" expand="block" id="container"><ion-icon slot="end" name="logo-facebook"></ion-icon>{{ 'loginButton' | translate }}</ion-button>
+  <ion-button (click)="loginWithFacebook()" expand="block">
+  <ion-icon slot="end" name="logo-facebook"></ion-icon>
+    {{ 'Login' | translate }}
+  </ion-button>
 
-  <ion-grid class="internship-logo">
-    <ion-row>
-      <ion-col class="justify-align-center">
-        <ion-text>{{'secondText' | translate}}</ion-text>
-        <ion-img src="assets/internship.png" class="inline-b"></ion-img>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+ <p>{{ 'simpleText' | translate }}</p><br />
+ <p>
+   <ion-card>
+
+     <ion-card-header>
+       {{ 'notificationInfo' | translate }}
+     </ion-card-header>
+
+     <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">{{ 'notificationTitle' | translate }}</ion-label>
+        <ion-input type="text"  [(ngModel)]="title" id="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">{{ 'notificationBody' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="body" id="body"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-button expand="block" (click)="simpleNotification()">
+          <ion-icon slot="end" name="enter-outline"></ion-icon>
+          {{ 'notifications' | translate }}   
+        </ion-button>
+        <!--
+        <ion-button (click)="clearText()">
+          <ion-icon slot="start" name="close"></ion-icon>
+          {{ 'clear' | translate }}
+        </ion-button>
+        -->
+      </ion-item>    
+     </ion-card-content>
+     
+   </ion-card>
+ </p>
 
 </ion-content>

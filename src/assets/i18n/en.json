@@ -1,13 +1,17 @@
 {
-	"title": "My Ionic App ",
-	"language": "Select language",
-	"select" : "Only one",
-	"English": "English",
-	"French" : "French",
-	"Ok" : "Accept",
-	"Cancel" : "Leave",
-	"logoutButton": "Logout :(",
-	"loginButton": ":) Login with facebook",
-	"firstText": "Good, but not everything works well, facebook, security error !",
-	"secondText": "Powered by "
+	"title":"Internship App",
+	"ok":"OK",
+	"cancel":"Cancel",
+	"selectLanguage":"Language",
+	"english":"English",
+	"french":"French",
+	"simpleText":"Test: I am a translation",
+	"notifications":"Send test notification",
+	"notificationBody":"Notification text:",
+	"notificationTitle":"Notification title:",
+	"Logout":"Sign out",
+	"Login":"Sign in with facebook",
+	"notificationInfo":"Input text to notify",
+	"clear":"Clear",
+	"secondText":"Powered by"
 }

@@ -4,8 +4,13 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
-//TranslateModule is imported for all modules
+/* 
+  Translation Modules is imported
+  in all components modules where
+  it is used
+*/
 import { TranslateModule } from '@ngx-translate/core';
+
 import { HomePageRoutingModule } from './home-routing.module';
 
 
@@ -16,6 +21,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule,
     TranslateModule,
+    TranslateModule.forChild()
   ],
   declarations: [HomePage]
 })
