@@ -3,25 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-//importing ionic-native plugins for facebook
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { Facebook } from '@ionic-native/facebook/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
 
-//Translations modules
-import { HttpClient } from '@angular/common/http';
+//Importing Translation Modules from 'ngx-translate'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
-//IonicStorageModule - changed to Storage and is provided directly
-import { Storage } from '@ionic/storage';
-import { LanguagePopoverPageModule } from './language-popover/language-popover.module';
-
-//for transfering ou .json files to the app
+//Finding my i18n translation .json files to enable internationalization
 export function createTranslateLoader(http: HttpClient){
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -29,17 +20,18 @@ export function createTranslateLoader(http: HttpClient){
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [HttpClientModule,BrowserModule, IonicModule.forRoot(), AppRoutingModule,
-    TranslateModule.forRoot({
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
+  HttpClientModule,
+  TranslateModule.forRoot(
+    {
       loader: {
         provide: TranslateLoader,
         useFactory: (createTranslateLoader),
         deps: [HttpClient]
       }
-    }),
-    LanguagePopoverPageModule
-  ],
-  providers: [StatusBar, SplashScreen, Facebook, Storage, { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+    }
+  )],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

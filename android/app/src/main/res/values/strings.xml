@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">internshipapp</string>
-    <string name="title_activity_main">internshipapp</string>
+    <string name="app_name">my-app</string>
+    <string name="title_activity_main">my-app</string>
     <string name="package_name">com.internship.app</string>
     <string name="custom_url_scheme">com.internship.app</string>
-    <string name="facebook_app_id">2397363577064001</string> 
-	<string name="fb_login_protocol_scheme">fb2397363577064001</string>
+    <string name="facebook_app_id">247876717274762</string>
+    <string name="facebook_client_token">267ae8416c4d633bf9c529de943c5930</string>
 </resources>

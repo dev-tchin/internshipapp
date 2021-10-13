@@ -11,10 +11,6 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'language-popover',
-    loadChildren: () => import('./language-popover/language-popover.module').then( m => m.LanguagePopoverPageModule)
-  },
 ];
 
 @NgModule({
